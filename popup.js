@@ -45,19 +45,18 @@ function getInfo() {
             entryid = match2[1];
         }
         
-        // Create the element (with id in it) to add on to the parent node of the iframe
+        // Create the element (with id in it) to add on to the no space div
         let toAppend = document.createElement('div');
         toAppend.classList.add('info');
         toAppend.innerHTML = `Entry/Playlist ID: ${entryid}`;
         console.log(`Entry/Playlist ID: ${entryid}`);
 
+        // Create a no space div to add the info to, which div will be added to the parent of the iframe
         let zeroSpaceDiv = document.createElement('div');
         zeroSpaceDiv.classList.add('no-space');
         zeroSpaceDiv.appendChild(toAppend);
 
-        frame.style.margin = "0px";
-
-        // Get iframe's parent and apply styling and add text as child
+        // Get iframe's parent and apply styling and add no space div as child
         let parent = frame.parentNode;
         parent.classList.add('info-parent');
         parent.appendChild(zeroSpaceDiv);
@@ -65,5 +64,7 @@ function getInfo() {
         if (parent.id != "instructure_ajax_error_box"){
             parent.style.display = "inline-block";
         }
+
+        frame.style.margin = "0px";
     }
 }
