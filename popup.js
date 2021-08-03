@@ -38,7 +38,7 @@ function getInfo() {
         let match2 = frame.src.match(re2);
 
         // Default value of no match incase no regex match is found for any variation
-        let entryid = "no match";
+        let entryid = "not found";
         if (match1) {
             entryid = match1[1];
         } else if (match2)  {
@@ -46,13 +46,25 @@ function getInfo() {
         }
         
         // Create/Style the element (with id in it) to add on to the parent node of the iframe
-        let toAppend = document.createElement('span');
+        let toAppend = document.createElement('p');
         toAppend.style.color = "#1c746b";
         toAppend.style.fontSize = "24pt";
-        toAppend.style.backgroundColor = "#d6d6d6";
+        toAppend.style.backgroundColor = "#f0f0f0";
+        toAppend.style.margin = "0px";
+        toAppend.style.padding = "0px";
         toAppend.innerHTML = `Entry/Playlist ID: ${entryid}`;
-        console.log(`Entry/Playlist ID: ${entryid}`)
-        frame.parentNode.appendChild(toAppend);
-        // https://cdnapisec.kaltura.com/p/1530551/embedPlaykitJs/uiconf_id/48353853?iframeembed=true&entry_id=1_t1thliam
+        console.log(`Entry/Playlist ID: ${entryid}`);
+
+        frame.style.margin = "0px";
+
+        // Get iframe's parent and apply styling and add text as child
+        let parent = frame.parentNode;
+        parent.style.border = "1px solid black";
+        parent.style.padding = "0px";
+        parent.appendChild(toAppend);
+        // Fixes an issue with an error box popping out with inline block display
+        if (parent.id != "instructure_ajax_error_box"){
+            parent.style.display = "inline-block";
+        }
     }
 }
