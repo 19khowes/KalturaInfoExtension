@@ -1,0 +1,22 @@
+.info {
+    position: absolute;
+    top: -250px;
+    left: 0px;
+    width: 610px;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0.35);
+    color: #000;
+    font-size: 24pt;
+    margin: 0px;
+    padding: 0px;
+}
+
+.info-parent {
+    padding: 0px;
+}
+
+.no-space {
+    position: relative;
+    width: 0px;
+    height: 0px;
+}

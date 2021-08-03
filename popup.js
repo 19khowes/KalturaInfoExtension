@@ -45,23 +45,22 @@ function getInfo() {
             entryid = match2[1];
         }
         
-        // Create/Style the element (with id in it) to add on to the parent node of the iframe
-        let toAppend = document.createElement('p');
-        toAppend.style.color = "#1c746b";
-        toAppend.style.fontSize = "24pt";
-        toAppend.style.backgroundColor = "#f0f0f0";
-        toAppend.style.margin = "0px";
-        toAppend.style.padding = "0px";
+        // Create the element (with id in it) to add on to the parent node of the iframe
+        let toAppend = document.createElement('div');
+        toAppend.classList.add('info');
         toAppend.innerHTML = `Entry/Playlist ID: ${entryid}`;
         console.log(`Entry/Playlist ID: ${entryid}`);
+
+        let zeroSpaceDiv = document.createElement('div');
+        zeroSpaceDiv.classList.add('no-space');
+        zeroSpaceDiv.appendChild(toAppend);
 
         frame.style.margin = "0px";
 
         // Get iframe's parent and apply styling and add text as child
         let parent = frame.parentNode;
-        parent.style.border = "1px solid black";
-        parent.style.padding = "0px";
-        parent.appendChild(toAppend);
+        parent.classList.add('info-parent');
+        parent.appendChild(zeroSpaceDiv);
         // Fixes an issue with an error box popping out with inline block display
         if (parent.id != "instructure_ajax_error_box"){
             parent.style.display = "inline-block";
