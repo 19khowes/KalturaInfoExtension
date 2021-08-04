@@ -29,6 +29,8 @@ function getInfo() {
     // Different regex variations for different iframe types
     const re1 = /entryid%2F(\w_\w{8})%2F/;
     const re2 = /entry_id=(\w_\w{8})/;
+    const re3 = /\[playlistAPI.kpl0Id\]=(\w_\w{8})/;
+    // [playlistAPI.kpl0Id]=1_b2v9f00x
     
     // Loop through each iframe
     for (frame of info) {
@@ -36,6 +38,8 @@ function getInfo() {
         // console.log(frame.src);
         let match1 = frame.src.match(re1);
         let match2 = frame.src.match(re2);
+        let match3 = frame.src.match(re3);
+        
 
         // Default value of no match incase no regex match is found for any variation
         let entryid = "not found";
@@ -43,6 +47,8 @@ function getInfo() {
             entryid = match1[1];
         } else if (match2)  {
             entryid = match2[1];
+        } else if (match3) {
+            entryid = match3[1];
         }
         
         // Create the element (with id in it) to add on to the no space div
