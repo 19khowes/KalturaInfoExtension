@@ -12,7 +12,7 @@
             "css": ["styles.css"]
         }
     ],
-    "permissions": ["activeTab", "scripting", "tabs"],
+    "permissions": ["activeTab", "scripting"],
     "action": {
         "default_popup": "popup.html",
         "default_icon": {
