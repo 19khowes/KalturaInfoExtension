@@ -20,3 +20,21 @@
     width: 0px;
     height: 0px;
 }
+
+.mediaspace-info {
+    /* position: absolute;
+    top: -250px;
+    left: 0px;
+    width: 740px;
+    */
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #000;
+    font-size: 24pt;
+    margin: 0px;
+    padding: 0px;
+}
+
+.mediaspace-info-parent {
+    padding: 0px;
+}
