@@ -93,16 +93,16 @@ function getInfo() {
             toAppend.innerHTML = `Entry/Playlist ID: ${entryid}`;
             console.log(`Entry/Playlist ID: ${entryid}`);
 
-            // // Create a no space div to add the info to, which div will be added to the parent of the iframe
-            // let zeroSpaceDiv = document.createElement('div');
-            // zeroSpaceDiv.classList.add('mediaspace-no-space');
-            // zeroSpaceDiv.appendChild(toAppend);
+            // Create a no space div to add the info to, which div will be added to the parent of the iframe
+            let zeroSpaceDiv = document.createElement('div');
+            zeroSpaceDiv.classList.add('mediaspace-no-space');
+            zeroSpaceDiv.appendChild(toAppend);
 
             // Get iframe's parent and apply styling and add no space div as child
             // let parent = frame.parentNode.parentNode.parentNode;
             let parent = document.getElementById('mediaContainer');
             parent.classList.add('mediaspace-info-parent');
-            parent.appendChild(toAppend);
+            parent.appendChild(zeroSpaceDiv);
             // Fixes an issue with an error box popping out with inline block display
             if (parent.id != "instructure_ajax_error_box") {
                 parent.style.display = "inline-block";
