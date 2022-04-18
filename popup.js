@@ -76,10 +76,11 @@ function getInfo() {
             zeroSpaceDiv.classList.add('no-space');
             zeroSpaceDiv.appendChild(toAppend);
 
-            // Get iframe's parent and apply styling and add no space div as child
+            // Get iframe's parent and apply styling and add no space div as child (right after the iframe..for proper appearance v1.2.0)
             let parent = frame.parentNode;
             parent.classList.add('info-parent');
-            parent.appendChild(zeroSpaceDiv);
+            parent.insertBefore(zeroSpaceDiv, frame.nextSibling);
+
             // Fixes an issue with an error box popping out with inline block display
             if (parent.id != "instructure_ajax_error_box") {
                 parent.style.display = "inline-block";
